@@ -1,0 +1,116 @@
+.limiter{
+  width: 100%;
+}
+
+div.background-login {
+background-image: url("../../../assets/img/background-login.png");
+width: 100%;
+min-height: 100vh;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.title{
+  font-weight: 700;
+  font-size: 24px;
+  color: #333;
+  line-height: 1.2;
+  padding-bottom: 32px;
+  margin: 0;
+}
+
+div.Formulario {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 90px 0 120px 0;
+}
+
+div.Formulario img{
+  width: 316px;
+}
+
+div.campo {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.campo i {
+  position: absolute;
+  bottom: 17px;
+  left: 30px;
+  color: #333;
+}
+
+input.input {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+  display: block;
+  width: 100%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+  border: none;
+}
+
+input.input:focus + i {
+  color: #57b846;
+}
+
+.mensagens{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+small a {
+  text-decoration: none;
+  color: #666666;
+}
+
+small a:hover {
+  color: #57b846;
+}
+
+.criarConta{
+  position: absolute;
+  bottom: 25px;
+  right: 173px;
+}
+
+.botao-login{
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background: #57b846;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s;
+  border: none;
+}
+
+.botao-login:hover {
+  background: #333;
+}
