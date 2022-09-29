@@ -40,6 +40,10 @@
 .paginacao{
   margin-top: 16px;
 
+  &::ng-deep .ngx-pagination{
+    padding-left: 0;
+  }
+
   &::ng-deep .ngx-pagination li{
     padding: 8px 8px;
     border-radius: 8px;
@@ -79,6 +83,10 @@
   }
 
   &::ng-deep .ngx-pagination .pagination-previous a::before, ::ng-deep .ngx-pagination .pagination-previous.disabled::before{
+    display: none;
+  }
+
+  &::ng-deep .ngx-pagination .pagination-previous.disabled, ::ng-deep .ngx-pagination .pagination-next.disabled{
     display: none;
   }
 
