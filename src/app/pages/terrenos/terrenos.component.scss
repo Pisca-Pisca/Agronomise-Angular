@@ -1,0 +1,93 @@
+.filtro{
+  padding: 18px;
+  background-color: #F7F7F7;
+  border-radius: 8px;
+}
+
+.tituloFiltro{
+  i{
+    color: #77942E;
+  }
+}
+
+.select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px solid #77942E;
+  font-size: 15px;
+  padding-right: 20px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "\f078";
+    font-size: 2em;
+    color: #FFF;
+    right: 20px;
+    top: calc(50% - 0.5em);
+  }
+}
+
+::ng-deep {
+  .slider .ngx-slider-bubble.ngx-slider-model-value{
+    font-size: 12px;
+  }
+
+  .slider .ngx-slider-bubble.ngx-slider-model-high{
+    font-size: 12px;
+  }
+
+  .slider .ngx-slider-bubble.ngx-slider-limit{
+    font-size: 12px;
+  }
+
+  .slider .ngx-slider .ngx-slider-bar {
+    background: #ffe4d1;
+    height: 2px;
+  }
+  .slider .ngx-slider .ngx-slider-selection {
+    background: #7C994C;
+  }
+
+  .slider .ngx-slider .ngx-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: #7C994C;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .slider .ngx-slider .ngx-slider-pointer:after {
+    display: none;
+  }
+
+  .slider .ngx-slider .ngx-slider-bubble {
+    bottom: -23px;
+  }
+
+  .slider .ngx-slider .ngx-slider-limit {
+    color: #7C994C;
+  }
+
+  .slider .ngx-slider .ngx-slider-tick {
+    width: 1px;
+    height: 10px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #ffe4d1;
+    top: -1px;
+  }
+
+  .slider .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+    background: #7C994C;
+  }
+}
+
+
+

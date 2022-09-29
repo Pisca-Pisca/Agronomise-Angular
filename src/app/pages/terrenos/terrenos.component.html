@@ -1,0 +1,49 @@
+<section class="terrenos">
+    <img src="../../../assets/img/bannerTopoTerrenos.png" alt="" width="100%">
+
+    <div class="container mt-5 mb-5">
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <div class="filtro">
+            <p class="tituloFiltro">
+              <i class="fa-solid fa-filter"></i>
+              Filtrar por:
+            </p>
+
+            <label for="estado" class="d-block">Estado</label>
+            <select class="select" name="estado">
+              <option></option>
+              <option>teste</option>
+            </select>
+
+            <label class="mt-4 d-block" for="cidade">Cidade</label>
+            <select class="select" name="cidade">
+              <option></option>
+              <option>teste</option>
+            </select>
+
+            <label class="mt-4 d-block" for="regiao">Região</label>
+            <select class="select" name="regiao">
+              <option></option>
+              <option>teste</option>
+            </select>
+
+            <label for="metragem" class="mt-4 d-block">Metragem</label>
+            <small class="d-block mb-2">Intervalo de metragem</small>
+            <div class="slider">
+              <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-9 mt-4 mt-md-0">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-4" *ngFor="let terreno of terrenos | paginate: { itemsPerPage: 10, currentPage: page }">
+              <app-card-terreno [terreno]="terreno" [resultadoCompletoTerrenos]="terrenos"></app-card-terreno>
+            </div>
+          </div>
+        </div>
+
+        <pagination-controls class="paginacao" (pageChange)="page = $event" previousLabel="" nextLabel="" [autoHide]="true"></pagination-controls>
+      </div>
+    </div>
+</section>

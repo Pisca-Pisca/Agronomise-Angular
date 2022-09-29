@@ -1,0 +1,12 @@
+<div class="card">
+  <img [src]="terreno?.uploadImagem" class="card-img-top" alt="...">
+  <div class="card-body">
+    <div class="tag mb-3 w-50">{{terreno?.cidade}}</div>
+    <h5 class="card-title">{{terreno?.titulo}}</h5>
+    <p class="card-text">{{terreno?.descricao}}</p>
+    <div class="curtir" (click)="curtir()">
+      <img src="../../../assets/img/curtir.png" alt="Curtir" width="30px" *ngIf="curtido === true">
+      <img src="../../../assets/img/curtirDisable.png" alt="Descurtir" width="30px" *ngIf="curtido === false">
+    </div>
+  </div>
+</div>

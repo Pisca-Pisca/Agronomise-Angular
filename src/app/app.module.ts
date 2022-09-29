@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { TerrenosModule } from './pages/terrenos/terrenos.module';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +15,7 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     RouterModule,
     AuthModule,
