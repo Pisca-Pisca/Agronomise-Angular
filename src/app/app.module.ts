@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { TerrenosModule } from './pages/terrenos/terrenos.module';
 import { RouterModule } from '@angular/router';
@@ -19,7 +20,8 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     RouterModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
