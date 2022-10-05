@@ -1,3 +1,20 @@
+.poligono{
+  width: 100%;
+  min-height: 545px;
+  background-image: url("../../../assets/img/bannerTopoTerrenos.png");
+  background-size: cover;
+  background-position: center center;
+  clip-path: polygon(50% 0%, 100% 0, 100% 83%, 50% 100%, 0 83%, 0 0);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: semibold;
+}
+
 .filtro{
   padding: 18px;
   background-color: #F7F7F7;
