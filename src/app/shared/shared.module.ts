@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CardTerrenoComponent } from './card-terreno/card-terreno.component';
+import { CardConteudoComponent } from './card-conteudo/card-conteudo.component';
 
 @NgModule({
   imports: [
@@ -12,10 +13,12 @@ import { CardTerrenoComponent } from './card-terreno/card-terreno.component';
     FormsModule
   ],
   exports: [
-    CardTerrenoComponent
+    CardTerrenoComponent,
+    CardConteudoComponent
   ],
   declarations: [
-    CardTerrenoComponent
+    CardTerrenoComponent,
+    CardConteudoComponent
   ],
   providers: [
     AlertService,

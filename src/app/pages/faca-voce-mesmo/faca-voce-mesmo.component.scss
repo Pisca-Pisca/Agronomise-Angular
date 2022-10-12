@@ -1,0 +1,93 @@
+.poligono{
+  width: 100%;
+  min-height: 545px;
+  background-image: url("../../../assets/img/bannerTopofacaVoceMesmo.jpg");
+  background-size: cover;
+  background-position: center center;
+  clip-path: polygon(50% 0%, 100% 0, 100% 83%, 50% 100%, 0 83%, 0 0);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: semibold;
+}
+
+.banner{
+  margin: 32px 0 0 0;
+}
+
+.conteudo{
+  margin-top: 64px;
+}
+
+.titulo{
+  color: #77942E;
+}
+
+.page{
+  border-top: 2px dashed #dfe3e7;
+  margin-top: 32px;
+  margin-bottom: 64px;
+}
+
+.paginacao{
+  margin-top: 16px;
+
+  &::ng-deep .ngx-pagination{
+    padding-left: 0;
+  }
+
+  &::ng-deep .ngx-pagination li{
+    padding: 8px 8px;
+    border-radius: 8px;
+    margin: 0 16px;
+    border: 1px solid #dfe3e7;
+    background-color: white;
+    box-shadow: 0 5px 10px 0 rgb(50 50 50 / 12%);
+  }
+
+  &::ng-deep .ngx-pagination .current{
+    background-color: #77942E;
+    border: 1px solid #dfe3e7  !important;
+    padding: 11px 20px;
+    border-radius: 8px;
+    margin: 0 16px;
+    box-shadow: 0 5px 10px 0 rgb(50 50 50 / 12%);
+  }
+
+  &::ng-deep .ngx-pagination .pagination-next, ::ng-deep .pagination-next.disabled{
+    border: 1px solid #77942E;
+    border-radius: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px 0 rgb(50 50 50 / 12%);
+    padding: 8px 12px;
+  }
+
+  &::ng-deep .ngx-pagination .pagination-next a::after, ::ng-deep .ngx-pagination .pagination-next.disabled::after{
+    display: none;
+  }
+
+  &::ng-deep .ngx-pagination .pagination-previous, ::ng-deep .ngx-pagination .pagination-previous.disabled{
+    border: 1px solid #77942E;
+    border-radius: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px 0 rgb(50 50 50 / 12%);
+    padding: 8px 12px;
+  }
+
+  &::ng-deep .ngx-pagination .pagination-previous a::before, ::ng-deep .ngx-pagination .pagination-previous.disabled::before{
+    display: none;
+  }
+
+  &::ng-deep .ngx-pagination .pagination-previous.disabled, ::ng-deep .ngx-pagination .pagination-next.disabled{
+    display: none;
+  }
+
+  &::ng-deep .ngx-pagination li:hover, ::ng-deep .ngx-pagination a:hover{
+    background: #77942E;
+    color: white;
+  }
+}

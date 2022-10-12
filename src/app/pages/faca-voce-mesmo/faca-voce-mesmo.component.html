@@ -1,0 +1,24 @@
+<div class="poligono">Faça você mesmo</div>
+
+<div class="row banner ms-0 me-0">
+  <div class="col-md-6 col-12">
+    <img src="../../../assets/img/bannerFacaVoceMesmo.jpg" alt="imagem banner" width="550px">
+  </div>
+  <div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-center">
+    <div>
+      <h2 class="titulo">Conheça nossas dicas e tutoriais!</h2>
+      <p>Através dos vídeos e matérias que selecionamos, você pode adquirir conhecimentos e começar agora mesmo a elaborar o seu projeto de horta sustentável.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container conteudo">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-4" *ngFor="let conteudo of conteudos | paginate: { itemsPerPage: 9, currentPage: page }">
+      <app-card-conteudo [resultadoCompletoConteudos]="conteudos" [conteudo]="conteudo"></app-card-conteudo>
+    </div>
+  </div>
+  <div class="d-flex align-items-center justify-content-center page">
+    <pagination-controls class="paginacao" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Próxima" [autoHide]="true"></pagination-controls>
+  </div>
+</div>
