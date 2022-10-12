@@ -1,0 +1,63 @@
+<div class="modal-header border-0">
+     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef?.hide()">
+       <span aria-hidden="true" class="visually-hidden">&times;</span>
+     </button>
+</div>
+<div class="modal-body">
+  <div class="header">
+    <h1 class="titulo">Cadastro de Imóvel</h1>
+    <img src="../../../assets/img/curtir.png" alt="Ícone de folha" class="iconeFolha">
+  </div>
+
+  <div class="ms-4 me-4">
+   <form class="formulario">
+     <div class="row">
+       <div class="col-md-4 col-12">
+         <label class="mt-4 mb-3 d-block" for="cidade">CEP</label>
+         <input type="text" class="input">
+       </div>
+       <div class="col-md-8 col-12">
+         <label class="mt-4 mb-3 d-block" for="cidade">Endereço</label>
+         <input type="text" class="input">
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4 col-12">
+         <label class="mt-4 mb-3 d-block" for="cidade">Número</label>
+         <input type="text" class="input">
+       </div>
+       <div class="col-md-4 col-12">
+         <label class="mt-4 mb-3 d-block" for="cidade">Bairro</label>
+         <input type="text" class="input">
+       </div>
+       <div class="col-md-4 col-12">
+         <label class="mt-4 mb-3 d-block" for="cidade">Cidade</label>
+         <input type="text" class="input">
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-8 col-12">
+         <label class="mt-4 mb-3 d-block" for="cidade">Complemento</label>
+         <input type="text" class="input">
+       </div>
+       <div class="col-md-4 col-12">
+         <label class="mt-4 mb-3 d-block" for="cidade">Metragem M²</label>
+         <input type="text" class="input">
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-8 col-12">
+         <label class="mt-4 mb-3 d-block" for="cidade">Título/ Descrição</label>
+         <input type="text" class="input tituloterreno">
+         <textarea cols="50" rows="5" class="input textArea mt-3"></textarea>
+       </div>
+       <div class="col-md-4 col-12 mt-4 d-flex justify-content-center align-items-end">
+         <div class="d-flex flex-column">
+           <button class="btnUpload mb-3" type="button" (click)="uploadDocumentos('uploadImagem')">Imagem</button>
+           <button class="btnUpload mb-3" type="button" (click)="uploadDocumentos('uploadEscritura')">Escritura</button>
+         </div>
+       </div>
+     </div>
+   </form>
+  </div>
+</div>
