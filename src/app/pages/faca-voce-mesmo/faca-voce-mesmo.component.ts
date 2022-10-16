@@ -1,5 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { AlertService } from './../../shared/alert-service/alert-service.service';
+import { FacaVoceMesmoService } from './service/faca-voce-mesmo.service';
 import { Conteudo } from './interface/conteudo';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from "ngx-spinner";
+import { finalize, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-faca-voce-mesmo',
@@ -12,128 +17,25 @@ export class FacaVoceMesmoComponent implements OnInit {
 
   conteudos: Conteudo[] = [];
 
-  constructor() { }
+  constructor(
+    private _conteudoService: FacaVoceMesmoService,
+    private spinner: NgxSpinnerService,
+    private alerta: AlertService
+  ) { }
 
   ngOnInit(): void {
     this.getConteudos();
   }
 
   getConteudos(){
-   this.conteudos = [
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-      {
-        titulo:         "Como iniciar projeto de Horta ?",
-        descricao:      "A cada dia se faz mais necessário viver de uma forma sustentável e estabelecer uma relação mais próxima da natureza e com o meio em que vivemos. Devido a cultura dominante, é muito fácil esquecer que o alface....",
-        imagem:         "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        link:           "https://pindorama.org.br/agroecologia/como-iniciar-projeto-de-horta-urbana-comunitaria/"
-      },
-    ]
+    this.spinner.show();
+
+    this._conteudoService.getAll()
+      .pipe(take(1), finalize(() => this.spinner.hide()))
+      .subscribe(response => {
+        this.conteudos = response;
+      }, (error: HttpErrorResponse) => {
+        this.alerta.error(error);
+      });
   }
 }
