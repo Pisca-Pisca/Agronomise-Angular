@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   apiUrl: 'http://localhost:3333/api',
-  apiViaCep: 'https://viacep.com.br/ws'
+  apiViaCep: 'https://viacep.com.br/ws',
+  base_url_image: "https://drive.google.com/uc?export=view&id="
 };
 
 /*

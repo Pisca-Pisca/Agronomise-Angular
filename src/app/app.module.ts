@@ -13,6 +13,7 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { ParceirosModule } from './pages/parceiros/parceiros.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     TerrenosModule,
     FacaVoceMesmoModule,
+    ParceirosModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,37 @@
+<div class="poligono">Nossos Parceiros</div>
+
+<section class="background-gradient mt-5">
+  <div class="row">
+    <div class="col-lg-6 col-12 col-sm-12 parceriasSlogan">
+      <img src="../../../assets/img/imagemSloganParceiros.jpg" alt="Imagem slogan Parceiros">
+    </div>
+
+    <div class="col-lg-6 col-12 col-sm-12 parceriasTexto">
+        <p class="explicacaoParcerias">Conheça nossas parcerias!</p>
+        <h2 class="tituloParcerias">Mais de 30 empresas parceiras</h2>
+        <p class="explicacaoParcerias">Para facilitar e oferecer ainda mais benefícios em sua jornada, a Agronomi-se
+          fechou parceria com várias empresas do setor agronômico que oferecem condições especiais aos que participam do
+          nosso projeto!
+        <p>
+        <p class="explicacaoParcerias">E com isso, contamos com parceria de várias empresas que acreditam no nosso
+          propósito e confiam na gente :)
+        <p>
+        <p class="explicacaoParcerias">Veja abaixo nossa lista completa de parceiros
+        <p>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5 mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let parceiro of parceiros |  paginate: { itemsPerPage: 12, currentPage: page }">
+       <app-card-parceiros [parceiro]="parceiro" [resultadoCompletoParceiros]="parceiros"></app-card-parceiros>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center page">
+      <pagination-controls class="paginacao" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Próxima" [autoHide]="true"></pagination-controls>
+    </div>
+  </div>
+</section>

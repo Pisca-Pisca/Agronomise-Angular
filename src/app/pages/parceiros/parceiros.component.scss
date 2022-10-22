@@ -1,7 +1,7 @@
 .poligono{
   width: 100%;
   min-height: 545px;
-  background-image: url("../../../assets/img/bannerTopoTerrenos.png");
+  background-image: url("../../../assets/img/bannerTopoParceiros.jpg");
   background-size: cover;
   background-position: center center;
   clip-path: polygon(50% 0%, 100% 0, 100% 83%, 50% 100%, 0 83%, 0 0);
@@ -9,49 +9,66 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   color: #FFF;
   text-transform: uppercase;
   font-size: 50px;
   font-weight: semibold;
 }
 
-.filtro{
-  padding: 18px;
-  background-color: #F7F7F7;
-  border-radius: 8px;
-}
+.parceriasSlogan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 390px;
 
-.tituloFiltro{
-  i{
-    color: #77942E;
+  img {
+    width: 100%;
+    max-width: 460px;
+    height: 100%;
+    max-height: 320px;
+    border-radius: 10px;
   }
 }
 
-.select{
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border: none;
-  width: 100%;
-  background-color: transparent;
-  border-bottom: 1px solid #77942E;
-  font-size: 15px;
-  padding-right: 20px;
-  position: relative;
+.parceriasTexto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 45%;
 
-  &::before {
-    position: absolute;
-    content: "\f078";
-    font-size: 2em;
-    color: #FFF;
-    right: 20px;
-    top: calc(50% - 0.5em);
+  @media (max-width: 995px) {
+    width: 100%;
+  }
+}
+
+.tituloParcerias {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  color: #3a3a3a;
+  text-align: left;
+}
+
+.explicacaoParcerias {
+  font-size: 14px;
+  color: #989797;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.background-gradient{
+  background: linear-gradient(#f8f8f8, #ffffff);
+
+  .row{
+    margin-right: 0;
   }
 }
 
 .page{
   border-top: 2px dashed #dfe3e7;
   margin-top: 32px;
+  margin-bottom: 64px;
 }
 
 .paginacao{
@@ -116,63 +133,3 @@
     color: white;
   }
 }
-
-::ng-deep {
-  .slider .ngx-slider-bubble.ngx-slider-model-value{
-    font-size: 12px;
-  }
-
-  .slider .ngx-slider-bubble.ngx-slider-model-high{
-    font-size: 12px;
-  }
-
-  .slider .ngx-slider-bubble.ngx-slider-limit{
-    font-size: 12px;
-  }
-
-  .slider .ngx-slider .ngx-slider-bar {
-    background: #ffe4d1;
-    height: 2px;
-  }
-  .slider .ngx-slider .ngx-slider-selection {
-    background: #7C994C;
-  }
-
-  .slider .ngx-slider .ngx-slider-pointer {
-    width: 8px;
-    height: 16px;
-    top: auto; /* to remove the default positioning */
-    bottom: 0;
-    background-color: #7C994C;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-  }
-
-  .slider .ngx-slider .ngx-slider-pointer:after {
-    display: none;
-  }
-
-  .slider .ngx-slider .ngx-slider-bubble {
-    bottom: -23px;
-  }
-
-  .slider .ngx-slider .ngx-slider-limit {
-    color: #7C994C;
-  }
-
-  .slider .ngx-slider .ngx-slider-tick {
-    width: 1px;
-    height: 10px;
-    margin-left: 4px;
-    border-radius: 0;
-    background: #ffe4d1;
-    top: -1px;
-  }
-
-  .slider .ngx-slider .ngx-slider-tick.ngx-slider-selected {
-    background: #7C994C;
-  }
-}
-
-
-

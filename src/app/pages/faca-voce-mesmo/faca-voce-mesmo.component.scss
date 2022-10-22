@@ -17,6 +17,7 @@
 
 .banner{
   margin: 32px 0 0 0;
+  background: #f8f8f8;
 }
 
 .conteudo{
@@ -35,6 +36,10 @@
 
 .paginacao{
   margin-top: 16px;
+
+  &::ng-deep a{
+    text-decoration: none;
+  }
 
   &::ng-deep .ngx-pagination{
     padding-left: 0;

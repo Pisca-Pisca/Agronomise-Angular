@@ -22,7 +22,7 @@ export class CadastroImovelComponent implements OnInit {
       inputFile.id = "uploadImagem";
       inputFile.type = "file";
       inputFile.style.display = "none";
-      inputFile.accept = ".pdf, .png, .jpg, .jpeg,";
+      inputFile.accept = ".png, .jpg, .jpeg,";
       inputFile.click();
 
       inputFile.onchange = (ev: any) => {
@@ -39,7 +39,10 @@ export class CadastroImovelComponent implements OnInit {
       inputFileEscritura.click();
 
       inputFileEscritura.onchange = (ev: any) => {
-        console.log(ev.target.files[0]);
+        const formdata = new FormData();
+        formdata.append("escritura", ev.target.files[0]);
+
+        console.log(formdata.get('escritura'));
       }
 
     }

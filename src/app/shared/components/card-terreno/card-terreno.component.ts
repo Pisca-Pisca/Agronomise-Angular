@@ -1,4 +1,4 @@
-import { Terreno } from './../../pages/terrenos/interface/terreno';
+import { Terreno } from './../../../pages/terrenos/interface/terreno';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

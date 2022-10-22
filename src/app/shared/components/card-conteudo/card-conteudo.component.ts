@@ -1,4 +1,4 @@
-import { Conteudo } from './../../pages/faca-voce-mesmo/interface/conteudo';
+import { Conteudo } from '../../../pages/faca-voce-mesmo/interface/conteudo';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
