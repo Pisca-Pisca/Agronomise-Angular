@@ -1,0 +1,40 @@
+.poligono{
+  width: 100%;
+  min-height: 545px;
+  background-image: url("../../../assets/img/bannerTopoSobreNos.jpg");
+  background-size: cover;
+  background-position: center top;
+  clip-path: polygon(50% 0%, 100% 0, 100% 83%, 50% 100%, 0 83%, 0 0);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: semibold;
+}
+
+.color-green{
+  color: #77942E;
+}
+
+.border-subtitulo{
+  border-bottom: solid 1px #77942E;
+  width: 10%;
+  padding-top: 36px;
+}
+
+.carrosel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    max-width: 1000px;
+    max-height: 600px;
+    width: 100%;
+    height: 100%;
+  }
+}

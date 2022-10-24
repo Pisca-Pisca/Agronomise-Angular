@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { ParceirosModule } from './pages/parceiros/parceiros.module';
+import { SobreNosModule } from './pages/sobre-nos/sobre-nos.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -32,6 +33,7 @@ import { ParceirosModule } from './pages/parceiros/parceiros.module';
     TerrenosModule,
     FacaVoceMesmoModule,
     ParceirosModule,
+    SobreNosModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
