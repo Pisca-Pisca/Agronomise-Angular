@@ -22,9 +22,6 @@ body::-webkit-scrollbar-thumb {
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
-
-@media (max-width: 1024px) {
-  .modal-fullscreen{
-    height: auto;
-  }
+.modal-fullscreen{
+  height: auto;
 }

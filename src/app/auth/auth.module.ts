@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CadastroUsuariosComponent } from './cadastro-usuarios/cadastro-usuarios.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    CadastroImovelComponent
+    CadastroImovelComponent,
+    CadastroUsuariosComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
   ],
   exports: [
     LoginComponent,
-    CadastroImovelComponent
+    CadastroImovelComponent,
+    CadastroUsuariosComponent
   ]
 })
 export class AuthModule { }

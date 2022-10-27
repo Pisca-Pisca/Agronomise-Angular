@@ -1,4 +1,4 @@
-import { CadastroImovelComponent } from './../cadastro-imovel/cadastro-imovel.component';
+import { CadastroUsuariosComponent } from './../cadastro-usuarios/cadastro-usuarios.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,6 +16,6 @@ export class LoginComponent implements OnInit {
   }
 
   openModal(){
-    this.modalRef = this.modalService.show(CadastroImovelComponent,  Object.assign({}, { class: 'modal-fullscreen' }));
+    this.modalRef = this.modalService.show(CadastroUsuariosComponent,  Object.assign({}, { class: 'modal-fullscreen' }));
   }
 }
