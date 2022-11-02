@@ -1,3 +1,4 @@
+import { Page404Component } from './shared/components/page404/page404.component';
 import { SobreNosComponent } from './pages/sobre-nos/sobre-nos.component';
 import { ParceirosComponent } from './pages/parceiros/parceiros.component';
 import { FacaVoceMesmoComponent } from './pages/faca-voce-mesmo/faca-voce-mesmo.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'sobre-nos', component: SobreNosComponent },
   { path: 'lotes', component: TerrenosComponent },
   { path: 'home', component: HomeComponent },
-  { path: '**', component: HomeComponent }
+  { path: '**', component: Page404Component }
 ];
 import { FaqComponent } from './pages/faq/faq.component';
 import { TerrenosComponent } from './pages/terrenos/terrenos.component';

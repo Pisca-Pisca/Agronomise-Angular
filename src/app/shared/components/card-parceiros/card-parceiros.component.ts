@@ -9,8 +9,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardParceirosComponent implements OnInit {
 
-  BASE_URL_IMG: string = environment.base_url_image;
-
   @Input("parceiro") parceiro: Parceiro | null = null;
   @Input("resultadoCompletoParceiros") parceiros: Parceiro[] = [];
 

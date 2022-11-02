@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CardTerrenoComponent } from './components/card-terreno/card-terreno.component';
 import { CardConteudoComponent } from './components/card-conteudo/card-conteudo.component';
 import { CardParceirosComponent } from './components/card-parceiros/card-parceiros.component';
+import { Page404Component } from './components/page404/page404.component';
 
 @NgModule({
   imports: [
@@ -16,12 +17,14 @@ import { CardParceirosComponent } from './components/card-parceiros/card-parceir
   exports: [
     CardTerrenoComponent,
     CardConteudoComponent,
-    CardParceirosComponent
+    CardParceirosComponent,
+    Page404Component
   ],
   declarations: [
     CardTerrenoComponent,
     CardConteudoComponent,
-    CardParceirosComponent
+    CardParceirosComponent,
+    Page404Component
   ],
   providers: [
     AlertService,

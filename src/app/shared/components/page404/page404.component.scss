@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Fontdiner+Swanky");
+
+.page404{
+  height: 680px;
+  width: 100%;
+  background-image: url("../../../../assets/img/image404.jpg");
+  background-size: cover;
+}
+
+.paginaNaoEncontrada{
+  position: relative;
+}
+
+.background{
+  display: flex;
+  background-color: white;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.conteudo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .title{
+    font-family: "Fontdiner Swanky", cursive;
+    font-size: 4rem;
+  }
+
+  .subtitle{
+    font-style: italic;
+  }
+
+  .btnPrimary{
+    text-align: center;
+    text-decoration: none;
+    background-color: #77942E;
+    color: white;
+    height: 32px;
+    border-radius: 10px;
+    padding: 4px 6px 0px 6px;
+
+    &:hover {
+      background-color: #8ab61a;
+    }
+  }
+}
