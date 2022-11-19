@@ -1,0 +1,55 @@
+.header{
+  width: 90%;
+}
+
+.titulo{
+  border-bottom: 1px solid #77942E;
+  margin-left: 20px;
+  width: 80%;
+}
+
+.iconeFolha{
+  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+
+.input{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  width: 100%;
+  height: 32px;
+  background-color: transparent;
+  border-bottom: 1px solid #77942E;
+  font-size: 15px;
+  padding-right: 20px;
+  position: relative;
+
+  &.danger{
+    border-bottom: 1px solid red;
+  }
+}
+
+.btnEnviar{
+  background: #7C994C;
+  color: white;
+  width: 227px;
+  height: 45px;
+  border-radius: 82px;
+  font-size: 18px;
+
+  border: none;
+}
+
+@media (max-width: 1024px) {
+  .titulo{
+    width: 60%;
+  }
+
+  .iconeFolha{
+    right: 30px;
+  }
+}

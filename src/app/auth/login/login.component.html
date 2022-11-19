@@ -6,22 +6,29 @@
       </div>
 
       <div class="login d-flex align-items-center justify-content-center col-md-6 col-12">
-        <form>
+        <form [formGroup]="form" (ngSubmit)="logar()">
           <p class="text-center title">Acesse sua conta</p>
 
           <div class="campo">
-            <input type="email" class="input" placeholder="E-mail" required>
+            <input type="email" class="input" placeholder="E-mail" formControlName="email"
+            [ngClass]="(form.controls['email'].touched || form.controls['email'].dirty) && form.controls['email'].invalid ? 'danger' : ''">
             <i class="fa-solid fa-envelope"></i>
           </div>
           <div class="campo">
-            <input type="password" class="input" placeholder="Senha" required>
             <i class="fa-solid fa-lock"></i>
+
+            <input [type]="showPassword ? 'text' : 'password'" class="input" placeholder="Senha" formControlName="senha"
+            [ngClass]="(form.controls['senha'].touched || form.controls['senha'].dirty) && form.controls['senha'].invalid ? 'danger' : ''">
+
+            <button id="toggleSenha" (click)="toggleShowPassword()" type="button">
+              <i [ngClass]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" [attr.aria-label]="showPassword ? 'show password' : 'hide password'"></i>
+            </button>
           </div>
 
-          <button class="botao-login  mt-4">Login</button>
+          <button type="submit" class="botao-login mt-4">Login</button>
 
           <div class="mensagens">
-            <small><a href="#">Esqueceu a senha ?</a></small>
+            <small><a (click)="openModalResetSenha()">Esqueceu a senha ?</a></small>
             <small class="criarConta"><a (click)="openModal()">Crie sua conta &rarr;</a></small>
           </div>
         </form>

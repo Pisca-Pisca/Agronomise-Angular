@@ -1,0 +1,27 @@
+<div class="modal-header border-0">
+  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef?.hide()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="header">
+    <h1 class="titulo">Reset de senha</h1>
+    <img src="../../../assets/img/curtir.png" alt="Ícone de folha" class="iconeFolha">
+  </div>
+
+  <div class="ms-4 me-4">
+    <form [formGroup]="form" class="formulario" (ngSubmit)="enviarEmail();form.markAllAsTouched()">
+      <div class="row">
+        <div class="col-12">
+          <label class="mt-4 mb-3 d-block" for="email">E-mail</label>
+          <input type="text" class="input" formControlName="email"
+            [ngClass]="(form.controls['email'].touched || form.controls['email'].dirty) && form.controls['email'].invalid ? 'danger' : ''">
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-center mb-3 mt-4">
+        <button class="btnEnviar" type="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
