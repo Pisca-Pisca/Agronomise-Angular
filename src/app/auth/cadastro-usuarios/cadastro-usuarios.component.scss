@@ -51,6 +51,10 @@ label{
     height: 50px;
     border: 1px solid #77942E;
   }
+
+  &.danger{
+    border-bottom: 1px solid red;
+  }
 }
 
 .label{
@@ -63,6 +67,10 @@ label{
   height: 24px;
   width: 24px;
   margin-right: 16px;
+}
+
+.form-check-input:checked{
+  background: #77942E;
 }
 
 .upload{
@@ -90,4 +98,17 @@ label{
   border: none;
 }
 
+.campo{
+  position: relative;
 
+  #toggleSenha{
+    position: absolute;
+    bottom: 0px;
+    right: 19px;
+    color: #333;
+    font-size: 20px;
+
+    background: transparent;
+    border: none;
+  }
+}

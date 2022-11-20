@@ -10,74 +10,104 @@
   </div>
 
   <div class="ms-4 me-4">
-    <form class="formulario">
+    <form [formGroup]="form" class="formulario" (ngSubmit)="cadastrar();form.markAllAsTouched()">
       <div class="row">
         <div class="col-md-4 col-12">
           <label class="mt-4 mb-3 d-block" for="primeiroNome">Primeiro Nome</label>
-          <input type="text" class="input">
+          <input type="text" class="input" formControlName="primeiroNome" required
+            [ngClass]="(form.controls['primeiroNome'].touched || form.controls['primeiroNome'].dirty) && form.controls['primeiroNome'].invalid ? 'danger' : ''">
         </div>
         <div class="col-md-8 col-12">
           <label class="mt-4 mb-3 d-block" for="sobrenome">Sobrenome</label>
-          <input type="text" class="input">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-12">
-          <label class="mt-4 mb-3 d-block" for="senha">Data Nascimento</label>
-          <input type="date" class="input">
-        </div>
-        <div class="col-md-4 col-12">
-          <label class="mt-4 mb-3 d-block" for="email">E-mail</label>
-          <input type="text" class="input">
-        </div>
-        <div class="col-md-4 col-12">
-          <label class="mt-4 mb-3 d-block" for="senha">Senha</label>
-          <input type="text" class="input">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-12">
-          <label class="mt-4 mb-3 d-block" for="cidade">CEP</label>
-          <input type="text" class="input">
-        </div>
-        <div class="col-md-8 col-12">
-          <label class="mt-4 mb-3 d-block" for="cidade">Endereço</label>
-          <input type="text" class="input">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-12">
-          <label class="mt-4 mb-3 d-block" for="cidade">Número</label>
-          <input type="text" class="input">
-        </div>
-        <div class="col-md-4 col-12">
-          <label class="mt-4 mb-3 d-block" for="cidade">Bairro</label>
-          <input type="text" class="input">
-        </div>
-        <div class="col-md-4 col-12">
-          <label class="mt-4 mb-3 d-block" for="cidade">Cidade</label>
-          <input type="text" class="input">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 col-12">
-          <label class="mt-4 mb-3 d-block" for="cidade">Complemento</label>
-          <input type="text" class="input">
+          <input type="text" class="input" formControlName="sobrenome" required
+            [ngClass]="(form.controls['sobrenome'].touched || form.controls['sobrenome'].dirty) && form.controls['sobrenome'].invalid ? 'danger' : ''">
         </div>
       </div>
       <div class="row">
         <div class="col-md-6 col-12">
-          <div class="form-check mt-5 mb-3">
-            <input class="form-check-input" type="checkbox" value="" id="comodatario">
-            <label class="form-check-label" for="comodatario" class="label">
-              Quero anunciar meu terreno
-            </label>
+          <label class="mt-4 mb-3 d-block" for="cpf">CPF</label>
+          <input type="text" class="input" formControlName="cpf" required
+            [ngClass]="(form.controls['cpf'].touched || form.controls['cpf'].dirty) && form.controls['cpf'].invalid ? 'danger' : ''">
+        </div>
+        <div class="col-md-6 col-12">
+          <label class="mt-4 mb-3 d-block" for="rg">RG</label>
+          <input type="text" class="input" formControlName="rg" required
+            [ngClass]="(form.controls['rg'].touched || form.controls['rg'].dirty) && form.controls['rg'].invalid ? 'danger' : ''">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <label class="mt-4 mb-3 d-block" for="nascimento">Data Nascimento</label>
+          <input type="date" class="input" formControlName="nascimento" required
+            [ngClass]="(form.controls['nascimento'].touched || form.controls['nascimento'].dirty) && form.controls['nascimento'].invalid ? 'danger' : ''">
+        </div>
+        <div class="col-md-4 col-12">
+          <label class="mt-4 mb-3 d-block" for="email">E-mail</label>
+          <input type="text" class="input" formControlName="email" required
+            [ngClass]="(form.controls['email'].touched || form.controls['email'].dirty) && form.controls['email'].invalid ? 'danger' : ''">
+        </div>
+        <div class="col-md-4 col-12 campo">
+          <label class="mt-4 mb-3 d-block" for="senha">Senha</label>
+          <input [type]="showPassword ? 'text' : 'password'" class="input" placeholder="Senha" formControlName="senha" required
+            [ngClass]="(form.controls['senha'].touched || form.controls['senha'].dirty) && form.controls['senha'].invalid ? 'danger' : ''">
+
+            <button id="toggleSenha" (click)="toggleShowPassword()" type="button">
+              <i [ngClass]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" [attr.aria-label]="showPassword ? 'show password' : 'hide password'"></i>
+            </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <label class="mt-4 mb-3 d-block" for="cep">CEP</label>
+          <input type="text" class="input" formControlName="cep" required (blur)="verificaCep()"
+            [ngClass]="(form.controls['cep'].touched || form.controls['cep'].dirty) && form.controls['cep'].invalid ? 'danger' : ''">
+        </div>
+        <div class="col-md-8 col-12">
+          <label class="mt-4 mb-3 d-block" for="endereco">Endereço</label>
+          <input type="text" class="input" formControlName="endereco" required
+            [ngClass]="(form.controls['endereco'].touched || form.controls['endereco'].dirty) && form.controls['endereco'].invalid ? 'danger' : ''">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <label class="mt-4 mb-3 d-block" for="numero">Número</label>
+          <input type="text" class="input" formControlName="numero" required
+            [ngClass]="(form.controls['numero'].touched || form.controls['numero'].dirty) && form.controls['numero'].invalid ? 'danger' : ''">
+        </div>
+        <div class="col-md-4 col-12">
+          <label class="mt-4 mb-3 d-block" for="bairro">Bairro</label>
+          <input type="text" class="input" formControlName="bairro" required
+            [ngClass]="(form.controls['bairro'].touched || form.controls['bairro'].dirty) && form.controls['bairro'].invalid ? 'danger' : ''">
+        </div>
+        <div class="col-md-4 col-12">
+          <label class="mt-4 mb-3 d-block" for="cidade">Cidade</label>
+          <input type="text" class="input" formControlName="cidade" required
+            [ngClass]="(form.controls['cidade'].touched || form.controls['cidade'].dirty) && form.controls['cidade'].invalid ? 'danger' : ''">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <label class="mt-4 mb-3 d-block" for="complemento">Complemento</label>
+          <input type="text" class="input" formControlName="complemento">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <div class="mt-5 mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="comodante" name="comodante" value="comodante" (change)="changeRole($event.target)">
+              <label class="form-check-label" for="comodante" class="label">
+                Quero anunciar meu terreno
+              </label>
+           </div>
           </div>
-          <div class="form-check mt-4 mb-3">
-            <input class="form-check-input" type="checkbox" value="" id="comodante">
-            <label class="form-check-label" for="comodante" class="label">
-              Quero fazer a minha horta
-            </label>
+          <div class="mt-4 mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="comodatario" name="comodatario" value="comodatario" (change)="changeRole($event.target)">
+              <label class="form-check-label" for="comodatario" class="label">
+                Quero fazer a minha horta
+              </label>
+            </div>
           </div>
         </div>
 

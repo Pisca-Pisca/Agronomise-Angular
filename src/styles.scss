@@ -23,5 +23,13 @@ body::-webkit-scrollbar-thumb {
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
 .modal-fullscreen{
+  min-height: 100vh;
+  height: auto;
+}
+
+.modal-end{
+  position: absolute;
+  right: 0;
+  min-width: 100vw;
   height: auto;
 }

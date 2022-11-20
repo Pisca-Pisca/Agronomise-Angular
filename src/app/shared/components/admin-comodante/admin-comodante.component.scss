@@ -1,0 +1,45 @@
+.titulo{
+  border-bottom: 1px solid #77942E;
+  font-size: 24px;
+}
+
+.frame{
+  background-color: #F2F5F1;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  width: 50%;
+  background-color: transparent;
+  border-bottom: 1px solid #77942E;
+  font-size: 15px;
+  padding-right: 20px;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+
+button{
+  &.cadastro{
+    text-align: start;
+    border: none;
+    background-color: transparent;
+    width: 50%;
+    border-bottom: 1px solid #77942E;
+    font-size: 15px;
+    padding-right: 20px;
+    padding-bottom: 16px;
+  }
+
+  &.logout{
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    padding-right: 20px;
+  }
+}

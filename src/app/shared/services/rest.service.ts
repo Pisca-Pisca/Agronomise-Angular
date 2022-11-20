@@ -44,15 +44,15 @@ export class RestService<T> {
     return this.http.get<T>(`${API}/${this.endPoint}/${id}`, { params: params });
   }
 
-  create(body: T ): Observable<T> {
+  create(body: T | FormData): Observable<T> {
     return this.http.post<T>(`${API}/${this.endPoint}`, body);
   }
 
-  update(id: number, body: T ): Observable<T> {
+  update(id: number, body: T | FormData): Observable<T> {
     return this.http.put<T>(`${API}/${this.endPoint}/${id}`, body);
   }
 
-  patch(id: number, body: T ): Observable<T> {
+  patch(id: number, body: T | FormData): Observable<T> {
     return this.http.patch<T>(`${API}/${this.endPoint}/${id}`, body);
   }
 

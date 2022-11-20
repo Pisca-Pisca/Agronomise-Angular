@@ -32,9 +32,9 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let user = localStorage.getItem("usuarioLogado") ?  localStorage.getItem("usuarioLogado") : JSON.stringify(false);
+    let user = localStorage.getItem("usuarioLogado") ?  JSON.parse(localStorage.getItem("usuarioLogado")) : JSON.parse("false");
 
-    if(user)
+    if(user === true)
       window.open('/home', "_self");
   }
 
@@ -76,6 +76,7 @@ export class LoginComponent implements OnInit {
       if(response.success){
         const data = response.data;
         localStorage.setItem("userId", JSON.stringify(data.id));
+        localStorage.setItem("userName", JSON.stringify(data.nomeCompleto));
 
         if(data.tipoUsuario === "Comodante"){
           localStorage.setItem("tipoUsuario", JSON.stringify("Comodante"));

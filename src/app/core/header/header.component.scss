@@ -13,3 +13,13 @@
 .navbar-nav > .nav-item > a:hover  {
   color: #77942E;
 }
+
+.userIcon i{
+  cursor: pointer;
+  font-size: 32px;
+
+  &.text-green{
+    color: #77942E;
+  }
+}
+

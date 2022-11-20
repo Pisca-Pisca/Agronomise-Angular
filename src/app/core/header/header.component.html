@@ -46,25 +46,10 @@
             </li>
           </ul>
 
-          <div class="dropdown text-end">
-                    <a
-                      href="#"
-                      class="d-block link-dark text-decoration-none dropdown-toggle"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                    <i class="fa-solid fa-user"
-                        width="32"
-                        height="32"
-                    ></i>
-                    </a>
-                    <ul class="dropdown-menu text-small">
-                      <li><a class="dropdown-item" href="#">New project...</a></li>
-                      <li><a class="dropdown-item" href="#">Settings</a></li>
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
+          <div class="text-end" (click)="abrirModalAdmin()">
+              <a class="d-block link-dark text-decoration-none userIcon">
+                <i class="fa-solid fa-user" [ngClass]="usuarioLogado ? 'text-green' : ''" ></i>
+              </a>
           </div>
         </div>
       </div>

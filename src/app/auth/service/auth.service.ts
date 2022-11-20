@@ -6,12 +6,6 @@ import { Auth } from '../interface/auth';
 
 const API_ENDPOINT = 'auth';
 const API = environment.apiUrl;
-
-// interface QueryParams {
-//   chave: string,
-//   valor: string | number | boolean
-// }
-
 @Injectable({
   providedIn: 'root'
 })

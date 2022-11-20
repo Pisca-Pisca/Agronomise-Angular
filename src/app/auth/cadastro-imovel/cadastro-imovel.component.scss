@@ -31,11 +31,17 @@
   &.textArea{
    border: 1px solid #77942E;
    height: 100px;
+   border-radius: 10px;
   }
 
   &.tituloterreno{
     height: 50px;
     border: 1px solid #77942E;
+    border-radius: 10px;
+  }
+
+  &.danger{
+    border-bottom: 1px solid red;
   }
 }
 
@@ -44,6 +50,17 @@
   height: 80px;
   background: #D9D9D9;
   border-radius: 6px;
+
+  border: none;
+}
+
+.btnEnviar{
+  background: #7C994C;
+  color: white;
+  width: 298px;
+  height: 62px;
+  border-radius: 6px;
+  font-size: 24px;
 
   border: none;
 }

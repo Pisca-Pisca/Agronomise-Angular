@@ -10,46 +10,58 @@
   </div>
 
   <div class="ms-4 me-4">
-   <form class="formulario">
+   <form class="formulario" [formGroup]="form" (ngSubmit)="cadastrar();form.markAllAsTouched()">
      <div class="row">
        <div class="col-md-4 col-12">
          <label class="mt-4 mb-3 d-block" for="cidade">CEP</label>
-         <input type="text" class="input">
+         <input type="text" class="input" formControlName="cep" (blur)="verificaCep()"
+         [ngClass]="(form.controls['cep'].touched || form.controls['cep'].dirty) && form.controls['cep'].invalid ? 'danger' : ''">
        </div>
-       <div class="col-md-8 col-12">
-         <label class="mt-4 mb-3 d-block" for="cidade">Endereço</label>
-         <input type="text" class="input">
-       </div>
+       <div class="col-md-6 col-12">
+         <label class="mt-4 mb-3 d-block" for="endereco">Endereço</label>
+         <input type="text" class="input" formControlName="endereco"
+         [ngClass]="(form.controls['endereco'].touched || form.controls['endereco'].dirty) && form.controls['endereco'].invalid ? 'danger' : ''">
+        </div>
+        <div class="col-md-2 col-12">
+          <label class="mt-4 mb-3 d-block" for="numero">Número</label>
+          <input type="text" class="input" formControlName="numero"
+          [ngClass]="(form.controls['numero'].touched || form.controls['numero'].dirty) && form.controls['numero'].invalid ? 'danger' : ''">
+        </div>
      </div>
      <div class="row">
        <div class="col-md-4 col-12">
-         <label class="mt-4 mb-3 d-block" for="cidade">Número</label>
-         <input type="text" class="input">
-       </div>
-       <div class="col-md-4 col-12">
-         <label class="mt-4 mb-3 d-block" for="cidade">Bairro</label>
-         <input type="text" class="input">
+         <label class="mt-4 mb-3 d-block" for="bairro">Bairro</label>
+         <input type="text" class="input" formControlName="bairro"
+         [ngClass]="(form.controls['bairro'].touched || form.controls['bairro'].dirty) && form.controls['bairro'].invalid ? 'danger' : ''">
        </div>
        <div class="col-md-4 col-12">
          <label class="mt-4 mb-3 d-block" for="cidade">Cidade</label>
-         <input type="text" class="input">
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-md-8 col-12">
-         <label class="mt-4 mb-3 d-block" for="cidade">Complemento</label>
-         <input type="text" class="input">
+         <input type="text" class="input" formControlName="cidade"
+         [ngClass]="(form.controls['cidade'].touched || form.controls['cidade'].dirty) && form.controls['cidade'].invalid ? 'danger' : ''">
        </div>
        <div class="col-md-4 col-12">
-         <label class="mt-4 mb-3 d-block" for="cidade">Metragem M²</label>
-         <input type="text" class="input">
+         <label class="mt-4 mb-3 d-block" for="estado">Estado</label>
+         <input type="text" class="input" formControlName="estado">
        </div>
      </div>
      <div class="row">
        <div class="col-md-8 col-12">
-         <label class="mt-4 mb-3 d-block" for="cidade">Título/ Descrição</label>
-         <input type="text" class="input tituloterreno">
-         <textarea cols="50" rows="5" class="input textArea mt-3"></textarea>
+         <label class="mt-4 mb-3 d-block" for="complemento">Complemento</label>
+         <input type="text" class="input" formControlName="complemento">
+       </div>
+       <div class="col-md-4 col-12">
+         <label class="mt-4 mb-3 d-block" for="metragem">Metragem M²</label>
+         <input type="text" class="input" formControlName="metragem"
+         [ngClass]="(form.controls['metragem'].touched || form.controls['metragem'].dirty) && form.controls['metragem'].invalid ? 'danger' : ''">
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-8 col-12">
+         <label class="mt-4 mb-3 d-block" for="titulo/descricao">Título/ Descrição</label>
+         <input type="text" class="input tituloterreno" formControlName="titulo"
+         [ngClass]="(form.controls['titulo'].touched || form.controls['titulo'].dirty) && form.controls['titulo'].invalid ? 'danger' : ''">
+         <textarea cols="50" rows="5" class="input textArea mt-3" formControlName="descricao"
+         [ngClass]="(form.controls['descricao'].touched || form.controls['descricao'].dirty) && form.controls['descricao'].invalid ? 'danger' : ''"></textarea>
        </div>
        <div class="col-md-4 col-12 mt-4 d-flex justify-content-center align-items-end">
          <div class="d-flex flex-column">
@@ -58,6 +70,10 @@
          </div>
        </div>
      </div>
+
+     <div class="d-flex justify-content-center align-items-center mt-5 mb-5">
+      <button type="submit" class="btnEnviar mb-3">ENVIAR</button>
+    </div>
    </form>
   </div>
 </div>

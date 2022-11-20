@@ -6,7 +6,7 @@
       </div>
 
       <div class="login d-flex align-items-center justify-content-center col-md-6 col-12">
-        <form [formGroup]="form" (ngSubmit)="logar()">
+        <form [formGroup]="form" (ngSubmit)="logar();form.markAllAsTouched()">
           <p class="text-center title">Acesse sua conta</p>
 
           <div class="campo">
