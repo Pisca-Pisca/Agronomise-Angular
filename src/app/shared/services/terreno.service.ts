@@ -19,4 +19,12 @@ export class TerrenoService extends RestService<Terreno>{
   filtrarTerrenos(dados: any){
     return this.http.post<any[]>(`${API}/terrenosByfiltro`, dados);
   }
+
+  buscarTerrenoComodante(dados: any){
+    return this.http.post<any[]>(`${API}/buscarTerrenoComodante`, dados);
+  }
+
+  BuscarTerrenoComodatario(dados: any){
+    return this.http.post<any[]>(`${API}/buscarTerrenoComodatario`, dados);
+  }
 }

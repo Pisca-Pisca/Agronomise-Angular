@@ -2,12 +2,12 @@ export interface Terreno {
   id?:                           string;
   cep:                           string;
   endereco:                      string;
-  numero:                        number;
+  numero:                        string;
   bairro:                        string;
   cidade:                        string;
   estado:                        string;
   complemento?:                  string;
-  metragem:                      number;
+  metragem:                      string;
   titulo:                        string;
   descricao:                     string;
   uploadImagem:                  string;

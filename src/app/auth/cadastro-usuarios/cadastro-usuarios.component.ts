@@ -128,6 +128,8 @@ export class CadastroUsuariosComponent implements OnInit {
     }
 
     if(this.form.valid){
+
+      console.log(this.role);
       if(this.role == "comodatario"){
         this.comodatarioService.create(dados)
         .pipe(take(1), finalize(() => this.spinner.hide()))

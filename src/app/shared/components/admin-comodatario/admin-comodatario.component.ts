@@ -1,3 +1,5 @@
+import { TerrenoService } from './../../services/terreno.service';
+import { Terreno } from './../../../pages/terrenos/interface/terreno';
 import { HttpErrorResponse } from '@angular/common/http';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -14,16 +16,19 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComodatarioComponent implements OnInit {
 
   nomeCompleto: string = "";
+  terrenos: Terreno[] = [];
+  userId = JSON.parse(localStorage.getItem("userId"));
 
   constructor(
     public bsModalRef: BsModalRef,
-    private authService: AuthService,
     private spinner: NgxSpinnerService,
     private alertService: AlertService,
-    private auth: AuthService
+    private auth: AuthService,
+    private terrenoService: TerrenoService
   ) { }
 
   ngOnInit(): void {
+    this.terrenoRelacionadoComodatario();
     this.nomeCompleto = JSON.parse(localStorage.getItem("userName"));
   }
 
@@ -44,6 +49,19 @@ export class AdminComodatarioComponent implements OnInit {
             this.alertService.error(response.error);
           }
         }, (error: HttpErrorResponse) => {
+          this.alertService.error(error);
+        });
+  }
+
+  terrenoRelacionadoComodatario(){
+    this.spinner.show();
+
+    this.terrenoService.BuscarTerrenoComodatario({idComodatario: this.userId})
+        .pipe(take(1), finalize(() => this.spinner.hide()))
+        .subscribe(async (response: any) => {
+            this.terrenos = response;
+        }, (error: HttpErrorResponse) => {
+          this.spinner.hide();
           this.alertService.error(error);
         });
   }

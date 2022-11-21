@@ -11,27 +11,28 @@
       </div>
 
       <div class="row mt-5">
-        <div class="col-12 mb-5">
-          <button type="button" class="cadastro">Cadastro</button>
+        <div class="col-12 margin-personalizada">
+          <button type="button" class="cadastro">Atualizar Cadastro</button>
         </div>
+      </div>
 
-        <div class="col-12">
-          <select class="select" name="Terreno">
-            <option selected disabled>Terrenos</option>
-            <option>Adicionar novo terreno</option>
-          </select>
-        </div>
-
-        <div class="col-12 mt-5">
-          <button type="button" class="logout" (click)="logout()">
-            <span class="me-3">Logout</span> <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </button>
-        </div>
+      <div class="botao-log">
+        <button type="button" class="logout" (click)="logout()">
+          <span class="me-3">Logout</span> <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
       </div>
     </div>
     <div class="col-md-6 col-12">
       <div class="cardsTerreno frame">
-        teste
+        <div class="d-flex align-items-center justify-content-center">
+          <ng-container *ngIf="terrenos.length > 0">
+            <div class="col-12 col-md-4" *ngFor="let terreno of terrenos">
+              <app-card-terreno [terreno]="terreno" [resultadoCompletoTerrenos]="terrenos" [pagina]="'admin'"></app-card-terreno>
+            </div>
+          </ng-container>
+
+          <p *ngIf="terrenos.length === 0">Nenhum terreno foi sinalizado interesse.</p>
+        </div>
       </div>
     </div>
   </div>

@@ -60,9 +60,6 @@ export class TerrenosComponent implements OnInit {
 
         this.terrenos.forEach(terreno => {this.cidades.push(terreno.cidade)});
         this.terrenos.forEach(terreno => {this.estados.push(terreno.estado)});
-
-        console.log(this.cidades)
-        console.log(this.estados)
     }, (error: HttpErrorResponse) => {
       this.spinner.hide();
       this.alertService.error(error);

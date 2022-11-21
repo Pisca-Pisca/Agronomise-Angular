@@ -24,3 +24,28 @@
   bottom: 22px;
   cursor: pointer;
 }
+
+.curtirAdmin img{
+  position: absolute;
+  left: 18px;
+  bottom: 53px;
+  cursor: pointer;
+}
+
+.btn-desistir{
+  border-radius: 10px;
+  background-color: red;
+  color: #fff;
+  border: none;
+  padding: 4px 16px;
+  width: 100%;
+}
+
+.btn-documentos{
+  border-radius: 10px;
+  background-color: #7C994C;
+  color: #fff;
+  border: none;
+  padding: 4px 16px;
+  width: 100%;
+}
