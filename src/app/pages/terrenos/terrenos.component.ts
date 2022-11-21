@@ -1,3 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { take, finalize } from 'rxjs/operators';
+import { TerrenoService } from './../../shared/services/terreno.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { AlertService } from './../../shared/alert-service/alert-service.service';
 import { Terreno } from './interface/terreno';
 import { Component, OnInit } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
@@ -24,315 +30,56 @@ export class TerrenosComponent implements OnInit {
   page: number = 1;
 
   terrenos: Terreno[] = [];
+  cidades: any[] = [];
+  estados: any[] = [];
 
-  constructor() { }
+  form = this.fb.group({
+    metragem: [""],
+    cidade: [""],
+    estado: [""]
+  });
+
+  constructor(
+    private fb: FormBuilder,
+    private spinner: NgxSpinnerService,
+    private alertService: AlertService,
+    private terrenoService: TerrenoService
+  ) { }
 
   ngOnInit() {
     this.getTerrenos();
   }
 
   getTerrenos(){
-    this.terrenos = [
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae12",
-        cep:                           "18079-302",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        120,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Sorocaba",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Sorocaba",
-        descricao:                     "Terreno localizado na zona oeste de Sorocaba",
-        uploadImagem:                  "https://cdn.uso.com.br/13530/2021/07/b64b349550df8509a46c7ae9e7b850ad.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-      {
-        id:                            "ae13",
-        cep:                           "18079-852",
-        endereco:                      "Rua Qualquer para teste",
-        numero:                        10,
-        bairro:                        "Bairro de teste",
-        cidade:                        "Votorantim",
-        estado:                        "São Paulo",
-        complemento:                   "--",
-        metragem:                      100,
-        titulo:                        "Terreno na cidade de Votorantim",
-        descricao:                     "Terreno localizado na zona oeste de Votorantim",
-        uploadImagem:                  "https://www.delta.mg.gov.br/wp-content/uploads/2021/04/shutterstock_507200902-1-1024x683.jpg",
-        uploadEscritura:               "https://cdn.agronomise.com.br/escrituras/ae12/escritura.pdf"
-      },
-    ]
+    this.spinner.show();
+
+    this.terrenoService.getAll()
+    .pipe(take(1), finalize(() => this.spinner.hide()))
+    .subscribe((response: any) => {
+        this.terrenos = response;
+
+        this.terrenos.forEach(terreno => {this.cidades.push(terreno.cidade)});
+        this.terrenos.forEach(terreno => {this.estados.push(terreno.estado)});
+
+        console.log(this.cidades)
+        console.log(this.estados)
+    }, (error: HttpErrorResponse) => {
+      this.spinner.hide();
+      this.alertService.error(error);
+    });
+  }
+
+  filtrar(){
+    this.spinner.show();
+
+    this.terrenoService.filtrarTerrenos(this.form.value)
+    .pipe(take(1), finalize(() => this.spinner.hide()))
+    .subscribe((response: any) => {
+        this.terrenos = response;
+        console.log(this.estados)
+    }, (error: HttpErrorResponse) => {
+      this.spinner.hide();
+      this.alertService.error(error);
+    });
   }
 }

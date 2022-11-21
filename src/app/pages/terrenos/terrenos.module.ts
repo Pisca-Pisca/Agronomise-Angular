@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TerrenosComponent } from './terrenos.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SharedModule,
     FormsModule,
     NgxSliderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [TerrenosComponent]
 })

@@ -15,4 +15,8 @@ export class TerrenoService extends RestService<Terreno>{
   constructor(protected http: HttpClient) {
     super(API_ENDPOINT, http);
   }
+
+  filtrarTerrenos(dados: any){
+    return this.http.post<any[]>(`${API}/terrenosByfiltro`, dados);
+  }
 }

@@ -5,34 +5,34 @@
       <div class="row">
         <div class="col-12 col-md-3">
           <div class="filtro">
-            <p class="tituloFiltro">
-              <i class="fa-solid fa-filter"></i>
-              Filtrar por:
-            </p>
+            <form [formGroup]="form" (ngSubmit)="filtrar()">
+              <p class="tituloFiltro">
+                <i class="fa-solid fa-filter"></i>
+                Filtrar por:
+              </p>
 
-            <label for="estado" class="d-block">Estado</label>
-            <select class="select" name="estado">
-              <option></option>
-              <option>teste</option>
-            </select>
+              <label for="estado" class="d-block">Estado</label>
+              <select class="select" name="estado" formControlName="estado">
+                <option selected></option>
+                <option *ngFor="let estado of estados">{{ estado }}</option>
+              </select>
 
-            <label class="mt-4 d-block" for="cidade">Cidade</label>
-            <select class="select" name="cidade">
-              <option></option>
-              <option>teste</option>
-            </select>
+              <label class="mt-4 d-block" for="cidade">Cidade</label>
+              <select class="select" name="cidade" formControlName="cidade">
+                <option selected></option>
+                <option *ngFor="let cidade of cidades">{{ cidade }}</option>
+              </select>
 
-            <label class="mt-4 d-block" for="regiao">Região</label>
-            <select class="select" name="regiao">
-              <option></option>
-              <option>teste</option>
-            </select>
+              <label for="metragem" class="mt-4 d-block">Metragem</label>
+              <small class="d-block mb-2">Intervalo de metragem</small>
+              <div class="slider">
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options" formControlName="metragem"></ngx-slider>
+              </div>
 
-            <label for="metragem" class="mt-4 d-block">Metragem</label>
-            <small class="d-block mb-2">Intervalo de metragem</small>
-            <div class="slider">
-              <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
-            </div>
+              <div class="d-flex align-items-center justify-content-end mt-4">
+                <button type="submit" class="btn-filtrar">Filtrar</button>
+              </div>
+            </form>
           </div>
         </div>
         <div class="col-12 col-md-9 mt-4 mt-md-0">

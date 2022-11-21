@@ -149,7 +149,7 @@ export class CadastroUsuariosComponent implements OnInit {
               }
             });
           }else{
-            this.alertService.warning(response.message);
+            this.alertService.info(response.message);
           }
         }, (error: HttpErrorResponse) => {
           this.alertService.error(error);
